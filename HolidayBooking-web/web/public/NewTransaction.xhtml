@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>New order</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+              />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <style type="text/css">
+            @import "../CSS/navigation.css";
+        </style>
+    </head>
+    <body>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <header><ul>
+                
+                 <li><a href="#user">Hello #{login.id}</a></li>
+                <li><a  href="./Transaction.xhtml">Searching Transaction</a></li>
+                <li><a href="#about">About</a></li>
+                <li style="float:right"><a class="active" onclick="goBack()" >Go Back</a></li>
+            </ul>
+            <br></br>
+            </header>
+        <article>
+            <h:form>
+                <div class="w3-display-middle w3-card-4"   style="width:auto;background-color:whitesmoke">
+                    <div class="w3-container w3-green">
+                    <h2>Holiday Booking</h2>
+                </div>
+                <table class="w3-table-all w3-hoverable w3-small">
+                    <thead>
+                        <tr class="w3-green"><th>Activity ID</th><th>Name</th><th>Activity Type</th><th>Detail</th><th>price($)</th>
+                            <th> Payment </th><th>Action</th></tr></thead><tbody>
+                        <ul id="holidaylist">
+                            <ui:repeat value="#{newBook.activities}" var="a" varStatus="status" >
+                                <tr> <td>#{a.activityID}  </td><td>#{a.name} </td><td>#{a.type.typeName}</td>
+                                    <td>#{a.detail}</td>
+                                    <td> #{a.price} </td>
+                                    <td> <h:selectOneMenu value="#{login.payment}" style="width:100px">  
+                                            <f:selectItem itemValue="Debit"  itemLabel="Debit"/>   
+                                            <f:selectItem itemValue="Credit"  itemLabel="Credit"/>   
+                                            <f:selectItem itemValue="Authorization" itemLabel="Authorization" />  
+                                            <f:selectItem itemValue="Delayed Capture" itemLabel="Delayed Capture" />  
+                                        </h:selectOneMenu></td>
+                                    <td><h:commandButton  class="w3-btn w3-green w3-round-xxlarge" value="book" action="#{login.book(a)}"/></td></tr>
+                            </ui:repeat>
+                        </ul>
+                    </tbody> 
+                </table>
+                    </div>
+            </h:form>
+        </article>
+    </body>
+</html>

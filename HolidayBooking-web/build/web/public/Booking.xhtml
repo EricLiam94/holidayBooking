@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>Booking a holiday</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style type="text/css">
+            @import "./CSS/navigation.css";
+        </style>
+    </head>
+    <body>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <header>
+            <ul>
+                <li><a href="#hello">Hello #{login.id}</a></li>
+                <li><a  href="Transaction.xhtml">Searching Transaction</a></li>
+                <li><a href="#about">About</a></li>
+                <li style="float:right"><a class="active" onclick="goBack()" >Go Back</a></li>
+            </ul>
+            
+            <h2>Booking Detail for Transaction #{holidaymb.id}</h2> </header>
+        <h:form>
+        <div>#{holidaymb.type} Activities</div>
+        <table>
+        <ul id="activity" >
+            <ui:repeat value="#{holidaymb.activities}" var="l" varStatus="status">
+             <li>   #{l.activityID} #{l.name} #{l.detail}
+                 <h:commandButton value="Book" action="#{holidaymb.holidayBooking(l.activityID)}" />
+                                       </li>           </ui:repeat>
+        </ul></table></h:form>
+    </body>
+</html>

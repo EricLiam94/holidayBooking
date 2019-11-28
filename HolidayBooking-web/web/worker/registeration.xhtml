@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <style type="text/css">
+             @import "../CSS/navigation.css";
+                  </style>
+        <title>Registration</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <header>
+            <ul>
+                <li><a href="#user">Hello #{login.id}</a></li>
+                <li><a   href="./UserView.xhtml" draggable="True">View Users</a></li>
+                <li><a href="#about">About</a></li>
+                <li   style="float:right"><a class="active"> Register</a></li>
+            </ul>
+         
+          </header>
+        <br></br>
+        <br></br>
+        <br></br>
+  
+        <div class="w3-display-middle w3-card-4" align="center"  style="width:40%;background-color:whitesmoke">
+            <h:form>
+                <div class="w3-container w3-green">
+                    <h2>User Information</h2>
+                </div>
+                <br></br>
+                <table >
+                    <tr><td>First Name:</td> <td><h:inputText id="fname" required="true" value="#{userC.fname}" requiredMessage="first name is mandatory">
+                                <!--<f:validateRegex pattern="([a-zA-Z]+)"  />--> 
+                            </h:inputText></td>
+                            
+                    </tr>
+                    <tr><td>Last Name:</td> <td><h:inputText  id="lname" required="true" value="#{userC.lname}" requiredMessage="last name is mandatory">
+                                <!--<f:validateRegex pattern="([a-zA-Z]+)" />--> 
+                            </h:inputText></td>
+                     
+                    </tr>
+                    <tr><td>Password:</td> <td><h:inputText  id="password" required="true" value="#{userC.password}" requiredMessage="Password is mandatory"> 
+                           <!--<f:validateRegex pattern="(\w+).{6,12}"  />--> 
+                            </h:inputText></td>
+                       
+                    </tr>
+                    <tr><td>Email:</td> <td><h:inputText  id ="email" required="true"  requiredMessage="email is mandatory" value="#{userC.email}">
+<!--                            <f:validateRegex pattern="(\w+)\@(\w+)\.([a-zA-Z]+)"  /> -->
+                            </h:inputText></td>
+                       
+                    </tr>   
+                    <tr><td>TYPE : </td><td><h:selectOneRadio  id ="type" required="True"  requiredMessage="please choose user type" value = "#{userC.type}">
+                            <f:selectItem itemValue = "public" itemLabel = "Public" />
+                            <f:selectItem itemValue = "worker" itemLabel = "Worker" />
+                            </h:selectOneRadio></td></tr>
+                    <tr><td></td> <td><h:commandButton  class="w3-btn w3-green w3-round-xxlarge" action="#{userC.register()}"  value="register" style="float:right"></h:commandButton></td>
+                    </tr>
+                </table>
+               <h:messages for="fname"> </h:messages>
+               <h:messages for="lname"></h:messages> 
+               <h:messages for="password"></h:messages> 
+                <h:messages for="email"> </h:messages>
+                 <h:messages for="type"> </h:messages>
+            </h:form> 
+        </div>
+    </body>
+
+</html>

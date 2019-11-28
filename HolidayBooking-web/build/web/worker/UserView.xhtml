@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>View User</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <style type="text/css">
+            @import "../CSS/navigation.css";
+        </style>
+    </h:head>
+    <h:body>
+        <header class="w3-center"><ul>
+                <li><a href="#user">Hello  #{login.id}</a></li>
+                <li><a  class="active" >View Users</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            </header>
+           
+ 
+        <div class="w3-display-middle w3-card-4" align="center"  style="width:80%;background-color:whitesmoke">
+        <h:form>
+             <br></br>
+            <div class="w3-container w3-green">
+                    <h2>View Users</h2>
+                </div>
+            <br></br>
+            <div class="w3-center w3-container  " style="margin:auto" ><table  ><tr><td> ID: </td><td>
+                        <h:inputText value="#{workController.id}"></h:inputText></td></tr>
+                <tr><td> First Name: </td><td>
+                        <h:inputText value="#{workController.fname}"></h:inputText></td></tr>
+                <tr><td> Last Name: </td><td>
+                        <h:inputText value="#{workController.lname}"></h:inputText></td></tr>
+                <tr><td> E-mail: </td><td>
+                        <h:inputText value="#{workController.email}"></h:inputText></td></tr>
+                <tr><td>TYPE : </td><td><h:selectOneRadio value = "#{workController.type}">
+                            <f:selectItem itemValue = "public" itemLabel = "Public" />
+                            <f:selectItem itemValue = "worker" itemLabel = "Worker" />
+                        </h:selectOneRadio></td></tr>
+                <tr><td><h:commandButton class="w3-btn w3-green w3-round-xxlarge" value="Search" action="#{workController.combinationSearch()}"/></td><td>
+                        <h:commandButton class="w3-btn w3-green w3-round-xxlarge" value="Clear" action="#{workController.clear()}"/>
+                    </td></tr>
+                </table></div>
+            <div>
+                <p  style="float:right"><marquee  style="width:300px"> Click to check details </marquee></p>
+                <table class="w3-table-all w3-hoverable w3-small"><thead ><tr class="w3-green"><th>ID</th><th>Full name</th></tr></thead>
+                    <tbody><ul id="userList" >
+                            <ui:repeat value="#{workController.list}" var="l" varStatus="status" >
+                                <tr> <td> <h:link outcome="/worker/userDetail" style="text-decoration:none">#{l.id}
+                                                <f:param name="userIndex" value="#{status.index + 1}"></f:param>
+                                            </h:link></td> 
+                                        <!-- Iterate it --><td>
+                                            <h:link outcome="/worker/userDetail" style="text-decoration:none"> #{l.getfName()} #{l.getlName()}
+                                                <f:param name="userIndex" value="#{status.index + 1}"></f:param>
+                                            </h:link></td>
+                                    </tr>
+                            </ui:repeat>
+                        </ul></tbody></table></div>
+        </h:form>
+        <h:form>
+        <h:commandButton class="w3-btn w3-green w3-round-xxlarge" value="Add New"  action="registeration.xhtml"/>
+        </h:form>
+        </div>
+    </h:body>
+</html>

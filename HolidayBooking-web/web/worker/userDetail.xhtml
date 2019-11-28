@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>User Detail</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <style type="text/css">
+            @import "../CSS/navigation.css";
+        </style>
+    </head>
+    <body>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <header>
+            <ul>
+                <li><a href="#hello">Hello #{login.id}</a></li>
+                <li><a   href="./UserView.xhtml" draggable="True">View Users</a></li>
+                <li><a href="#about">About</a></li>
+                <li style="float:right"><a class="active">User Detail</a> </li>
+            </ul></header>
+        <article>
+            <div class="w3-display-middle w3-card-4" align="center"  style="width:90%;background-color:whitesmoke">
+                <div class="w3-container w3-green">
+                    <h2>User Detail</h2>
+                    <a class="active" style="float:right" onclick="goBack()" >Go Back</a>
+                </div>
+                <h:form>
+                        <div><h:commandButton class="w3-btn w3-green w3-round-xxlarge " value="Delete" action="#{userDC.delete()}" style="float:right" /></div>
+                </h:form>
+                        <h:form>
+                    <table>
+                        <h3>User ID:  #{userDC.getaUser().id}</h3>
+                        
+                        <tr><td><br></br></td></tr>
+                        <tr><td>First Name:</td><td><h:inputText id="fname" class="w3-input w3-animate-input " style="width:50%" value="#{userDC.fname}">
+                                    <f:validateRegex pattern="([a-zA-Z]+)" /> 
+                                </h:inputText> </td><td>Last Name:</td><td> <h:inputText id="lname" class="w3-input w3-animate-input" style="width:50%" value="#{userDC.lname}" >
+                                    <f:validateRegex pattern="([a-zA-Z]+)" /> 
+                                </h:inputText> </td><td>Email:</td><td> <h:inputText id="email" class="w3-input w3-animate-input" style="width:50%" value="#{userDC.email}" >  
+                                    <f:validateRegex pattern="(\w+)\@(\w+)\.([a-zA-Z]+)"  /> 
+                                </h:inputText> 
+
+                            </td><td>Password:</td><td> <h:inputText id="passwd" class="w3-input w3-animate-input" style="width:50%" value="#{userDC.password}" >
+                                    <f:validateRegex pattern="(\w+).{6,12}"  /> 
+                                </h:inputText>           
+                            </td></tr><tr><td></td></tr>
+                        <tr><td>Street:</td><td> <h:inputText id="street" value="#{userDC.street}" class="w3-input w3-animate-input" style="width:50%"></h:inputText> </td>
+                            <td>TYPE : </td><td><h:selectOneRadio  id ="type" required="True"  requiredMessage="please choose user type" value = "#{userDC.type}">
+                                    <f:selectItem itemValue = "public" itemLabel = "Public" />
+                                    <f:selectItem itemValue = "worker" itemLabel = "Worker" />
+                                </h:selectOneRadio></td></tr>
+                        <tr><td>City:</td><td> <h:inputText id="city" value="#{userDC.city}" class="w3-input w3-animate-input" style="width:50%"></h:inputText> </td></tr>
+                        <tr><td>Country:</td><td> <h:inputText id="conntry" value="#{userDC.country}" class="w3-input w3-animate-input" style="width:50%"></h:inputText> </td></tr>
+                        <tr><td>Postcode:</td><td> <h:inputText id="postcode" value="#{userDC.postcode}" class="w3-input w3-animate-input" style="width:50%"></h:inputText> </td></tr>
+                        <tr><td>phone Number: </td><td><h:inputText id="phone" value="#{userDC.phoneNuml}" class="w3-input w3-animate-input" style="width:50%">
+                                <f:validateRegex pattern="^\d{10}$"  /> 
+                                </h:inputText> </td> <td></td>
+                            <td> <h:commandButton  class="w3-btn w3-green w3-round-xxlarge" value="Update" action="#{userDC.updateUser()}" /> </td>
+                        </tr>
+
+                    </table>
+                </h:form>
+                <h:form>
+                    <h:messages for="fname" id="errfname" style="color:red"> </h:messages> 
+                    <h:messages for="lname" id="errlname" style="color:red"></h:messages>
+                    <h:message for="email" id="erremail" style="color:red"></h:message>
+                    <h:messages for="passwd" id="errpwd" style="color:red"> </h:messages> 
+                    <h:messages for="street" id="errst" style="color:red"></h:messages>
+                    <h:message for="city" id="errct" style="color:red"></h:message>
+                    <h:message for="country" id="errc" style="color:red"></h:message>
+                    <h:messages for="postcode" id="errpost" style="color:red"> </h:messages> 
+                    <h:messages for="phone" id="errp" style="color:red"></h:messages>
+                </h:form>
+                <br></br>
+                <br></br>
+            </div>
+        </article>
+    </body>
+</html>

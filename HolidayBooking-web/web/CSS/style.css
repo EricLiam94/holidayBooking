@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 8, 2018, 3:45:09 PM
+    Author     : 46048
+*/
+
+/* Main Sections */
+html { background: #EAEAEA; }
+body { background-color:springgreen;color:aqua;  width: 1520px; height: 800px; margin: 0 auto; font-family:cursive; padding-bottom: 5px; background-image:url(dawn.jpg);
+background-size: cover;}
+
+
+header { background-color:wheat; height: 40px; padding: 20px; }
+article { padding: 20px; }
+footer { background: #9CF; border: 1px solid #999; margin: 5px 10px; padding: 0 10px; }
+/* Headings */
+header h1 { color: brown; margin: 0; }
+h2 { margin: 0; }
+/* Form Elements */
+form p { font-weight: bold; margin: 0; }
+input { margin-bottom: 20px; }
+textarea { display: block; margin-bottom: 10px; height: 240px; width: 480px;}
+/* Error validation */
+.error { color: red; font-weight: bold; }
+.xxx{font-size: 35px;}
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    width: 125px;
+    border-radius: 12px;
+}
+
+.button:hover {
+    background-color: violet; /* Green */
+    color: white;
+    
+.link{
+        font-size:35px;
+        color:pink;
+        
+    }
+    audio{display: none;}
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <style type="text/css">
+            @import "../CSS/navigation.css";
+        </style>
+        <title>Holiday Booking</title>
+    </head>
+    <body>
+        <header>
+            <ul>
+                <li><a class="active" href="#login">Hello </a></li>
+            </ul>
+        </header>  
+        <article >
+            <div class="w3-display-middle w3-card-4" align="center"  style="width:40%;background-color:whitesmoke">
+                <div align="center">
+                    <div class="w3-container w3-green">
+                        <h2 >User Login</h2>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <form action="j_security_check" method="POST">
+                        <table style="align-content:center"> 
+                            <tr>
+                                <td><lable for="j_username"> User ID:</lable>
+                                    <input name="j_username" type="text"/>
+                                </td>
+                            </tr>
+                            <tr><td></td></tr>
+                            <tr>
+                                <td><lable for="j_password"> Password:</lable>
+                                    <input name="j_password" type="password"/></td> 
+                            </tr>
+                            <tr></tr>
+                            <tr> <td> </td> <td > <button class="w3-btn w3-green w3-round-xxlarge" type="submit">submit</button>   </td> 
+                            </tr>   
+                        </table>
+                    </form>
+                    <br></br>
+                </div>
+            </div>     
+        </article>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <style type="text/css">
+            @import "./CSS/navigation.css";
+            body{ background-image:url(Resource/holiday.jpg) }
+        </style>
+        <title>Holiday Booking</title>
+    </head>
+    <body>
+        <header>
+            <ul>
+                <li><a class="active" href="#login">Hello </a></li>
+      </ul>
+        </header>  
+        <article >
+            <div class="w3-display-middle w3-card-4" align="center"  style="width:40%;background-color:whitesmoke">
+            <div align="center">
+                <div class="w3-container w3-green">
+                <h2 >User Login</h2>
+            </div>
+           <h:form>
+    <br></br>
+    <br></br>
+          <table > 
+                <tr>
+                    <td>User ID:</td>
+                    <td><h:inputText id="userId" label="id"  required="true" requiredMessage="You must enter your ID!" 
+                                     value="#{login.id}" style="width:auto" >
+                            <f:validateRegex pattern="((?=.*\d).{1,20})"/>
+                        </h:inputText></td>
+                </tr>
+             <tr></tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><h:inputSecret id="password" label="pass" required="true" requiredMessage="you must enter correct password"
+                                       value="#{login.password}" style="width:auto" >
+                        </h:inputSecret></td> 
+                </tr>
+                 <tr></tr>
+              <tr>  <td > User Type: <input type="radio" name="type" value="Public">Public</input> </td>
+            <td> <input type="radio" name="type" value="Worker">Worker</input></td>
+            <td>  <h:commandButton class="w3-btn w3-green w3-round-xxlarge" id="login" action="#{login.login()}" value="Login">
+                            </h:commandButton>  </td> 
+                     </tr>   
+          </table>
+            
+               <div style="color:red;font-size: 30px;">
+                   <h:messages for="userId" id="errid" style="color:red"> </h:messages> 
+                    <h:messages for="password" id="errpw" style="color:red"></h:messages>
+                     <h:message for="login" id="errlg" style="color:red"></h:message>
+               </div>
+           </h:form>
+            </div>
+            </div>
+            </article>
+    </body>
+</html>
